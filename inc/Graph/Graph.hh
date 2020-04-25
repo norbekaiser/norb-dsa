@@ -7,7 +7,7 @@
 
 #include <memory>
 #include <vector>
-
+#include <unordered_map>
 
 template <typename T> class GraphNode;
 template <typename T> class Graph
@@ -40,7 +40,9 @@ template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> Graph<T>::getNo
 
 template <typename T> void Graph<T>::DepthFirstSearch(std::shared_ptr<GraphNode<T>> start)
 {
-
+    std::unordered_map<GraphNode<T>,bool> V;
+    
+    std::unordered_map<GraphNode<T>,bool> PI;
 }
 
 #endif //TRAVELLER_GRAPH_GRAPH_HH
