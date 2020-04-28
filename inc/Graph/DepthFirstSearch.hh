@@ -1,6 +1,3 @@
-//
-// Created by norbert on 28.04.20.
-//
 
 #ifndef TRAVELLER_GRAPH_DEPTHFIRSTSEARCH_HH
 #define TRAVELLER_GRAPH_DEPTHFIRSTSEARCH_HH

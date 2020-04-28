@@ -1,6 +1,3 @@
-//
-// Created by norbert on 24.04.20.
-//
 
 #ifndef TRAVELLER_GRAPH_GRAPH_HH
 #define TRAVELLER_GRAPH_GRAPH_HH
