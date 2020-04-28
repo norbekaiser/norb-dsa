@@ -2,20 +2,25 @@
 #ifndef TRAVELLER_GRAPH_GRAPHVEDGE_HH
 #define TRAVELLER_GRAPH_GRAPHVEDGE_HH
 
-
+#include <memory>
 
 template <typename T> class GraphNode;
-template <typename T> class GraphVedge {
+/**
+ *
+ * @tparam T The GraphNode Type
+ * @tparam U The Edge Weighting
+ */
+template <typename T,typename U> class GraphVedge {
 public:
-    GraphVedge(T Target);
-
+    GraphVedge(std::shared_ptr<GraphNode<T>> Target);
 private:
-    GraphNode<T> Target;
+    std::shared_ptr<GraphNode<T>> Target;
+    U weight;
 };
 
 #include "GraphNode.hh"
 
-template <typename T> GraphVedge<T>::GraphVedge(T Elem) {
+template <typename T,typename U> GraphVedge<T,U>::GraphVedge(std::shared_ptr<GraphNode<T>> Target): Target(Target){
 
 }
 

@@ -40,9 +40,31 @@ template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> Graph<T>::getNo
 
 template <typename T> void Graph<T>::DepthFirstSearch(std::shared_ptr<GraphNode<T>> start)
 {
-    std::unordered_map<GraphNode<T>,bool> V;
+    //Storing a Color for hopefully each node
+    enum Color {white,gray};
+    std::unordered_map<decltype(start),Color> Colors;
+    std::unordered_map<decltype(start),decltype(start)> pi;
+    for(auto &Node : Nodes)
+    {
+        Colors[Node] = white;
+    }
+    long time = 0;
+    for(auto &Node: Nodes)
+    {
+        auto  dfsvisit = [this,&time,&Colors,&pi](decltype(start) u){
+            time++;
+            //Time[u] = time
+            Colors[u] = gray;
+            //foreach vertice
+
+        };
+        if(Colors.at(Node) ==white)
+        {
+            dfsvisit(Node);
+        }
+
+    }
     
-    std::unordered_map<GraphNode<T>,bool> PI;
 }
 
 #endif //TRAVELLER_GRAPH_GRAPH_HH
