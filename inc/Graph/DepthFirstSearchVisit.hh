@@ -13,11 +13,12 @@ template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &sto
 
 #include "GraphNode.hh"
 #include "DepthFirstSearchStorage.hh"
-
+#include <algorithm>
 template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node)
 {
     storage.time = storage.time + 1;
     storage.Colors[Node] = storage.gray;
+    std::for_each(storage.OnGray.begin(),storage.OnGray.end(),[&Node](auto f){f(Node);});
     for(auto &V: Node->getVedges())
     {
         if(!storage.Colors.contains(Node) || storage.Colors[Node] ==storage.white)
@@ -28,6 +29,7 @@ template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &sto
     }
     storage.time = storage.time + 1;
     storage.Colors[Node] = storage.black;
+    std::for_each(storage.OnBlack.begin(),storage.OnBlack.end(),[&Node](auto f){f(Node);});
 
 
 

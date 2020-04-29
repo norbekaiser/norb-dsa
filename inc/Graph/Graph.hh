@@ -4,7 +4,6 @@
 
 #include <memory>
 #include <vector>
-#include <unordered_map>
 
 template <typename T> class GraphNode;
 template <typename T> class Graph

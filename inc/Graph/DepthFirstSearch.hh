@@ -5,17 +5,16 @@
 
 
 template <typename T> class Graph;
-template <typename T> void DepthFirstSearch(Graph<T> G);
+template <typename T> struct DepthFirstSearchStorage;
+template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage=DepthFirstSearchStorage<T>{});
 
 #include <memory>
 #include "Graph.hh"
 #include "DepthFirstSearchVisit.hh"
 #include "DepthFirstSearchStorage.hh"
 
-template <typename T> void DepthFirstSearch(Graph<T> G)
+template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage)
 {
-
-    DepthFirstSearchStorage<T> storage;
     for(auto &Node: G.getNodes())
     {
         storage.Colors[Node] = storage.white;
