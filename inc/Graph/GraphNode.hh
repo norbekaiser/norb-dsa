@@ -10,7 +10,7 @@ template <typename T> class GraphNode
 {
 public:
     GraphNode(T Elem);
-    GraphVedge<T,bool> addVedge(std::shared_ptr<GraphNode<T>> Target);
+    GraphVedge<T,bool> addEdge(std::shared_ptr<GraphNode<T>> Target);
     const std::vector<GraphVedge<T, bool>> &getVedges() const;
     T getElem() const;
 private:
@@ -25,7 +25,7 @@ template <typename T> GraphNode<T>::GraphNode(T Elem): Elem(Elem) {
 
 }
 
-template <typename T> GraphVedge<T,bool> GraphNode<T>::addVedge(std::shared_ptr<GraphNode<T>> Target){
+template <typename T> GraphVedge<T,bool> GraphNode<T>::addEdge(std::shared_ptr<GraphNode<T>> Target){
     GraphVedge<T,bool> Vedge(std::move(Target));
     this->Vedges.push_back(Vedge);
     return Vedge;
