@@ -1,6 +1,6 @@
 
-#ifndef TRAVELLER_GRAPH_GRAPHNODE_HH
-#define TRAVELLER_GRAPH_GRAPHNODE_HH
+#ifndef NORB_DSA_GRAPHNODE_HH
+#define NORB_DSA_GRAPHNODE_HH
 
 #include <vector>
 #include <memory>
@@ -39,4 +39,4 @@ template<typename T> T GraphNode<T>::getElem() const {
     return Elem;
 }
 
-#endif //TRAVELLER_GRAPH_GRAPHNODE_HH
+#endif //NORB_DSA_GRAPHNODE_HH

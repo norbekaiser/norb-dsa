@@ -1,9 +1,6 @@
-//
-// Created by norbert on 28.04.20.
-//
 
-#ifndef TRAVELLER_GRAPH_DEPTHFIRSTSEARCHVISIT_HH
-#define TRAVELLER_GRAPH_DEPTHFIRSTSEARCHVISIT_HH
+#ifndef NORB_DSA_DEPTHFIRSTSEARCHVISIT_HH
+#define NORB_DSA_DEPTHFIRSTSEARCHVISIT_HH
 
 #include <memory>
 
@@ -37,4 +34,4 @@ template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &sto
 };
 
 
-#endif //TRAVELLER_GRAPH_DEPTHFIRSTSEARCHVISIT_HH
+#endif //NORB_DSA_DEPTHFIRSTSEARCHVISIT_HH

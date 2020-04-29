@@ -1,6 +1,6 @@
 
-#ifndef TRAVELLER_GRAPH_GRAPHVEDGE_HH
-#define TRAVELLER_GRAPH_GRAPHVEDGE_HH
+#ifndef NORB_DSA_GRAPHVEDGE_HH
+#define NORB_DSA_GRAPHVEDGE_HH
 
 #include <memory>
 
@@ -29,4 +29,4 @@ template<typename T, typename U> U GraphVedge<T, U>::getWeight() const {
     return weight;
 }
 
-#endif //TRAVELLER_GRAPH_GRAPHVEDGE_HH
+#endif //NORB_DSA_GRAPHVEDGE_HH

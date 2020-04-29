@@ -1,9 +1,6 @@
-//
-// Created by norbert on 28.04.20.
-//
 
-#ifndef TRAVELLER_GRAPH_TOPLOGICALSORT_HH
-#define TRAVELLER_GRAPH_TOPLOGICALSORT_HH
+#ifndef NORB_DSA_TOPLOGICALSORT_HH
+#define NORB_DSA_TOPLOGICALSORT_HH
 
 #include <deque>
 #include <memory>
@@ -31,4 +28,4 @@ template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> TopologicalSort
 
 }
 
-#endif //TRAVELLER_GRAPH_TOPLOGICALSORT_HH
+#endif //NORB_DSA_TOPLOGICALSORT_HH

@@ -1,9 +1,6 @@
-//
-// Created by norbert on 23.04.20.
-//
 
-#ifndef TRAVELLER_GRAPH_LISTNODEELEMENT_HH
-#define TRAVELLER_GRAPH_LISTNODEELEMENT_HH
+#ifndef NORB_DSA_LISTNODEELEMENT_HH
+#define NORB_DSA_LISTNODEELEMENT_HH
 
 
 template <typename T> class ListNodeElement
@@ -15,4 +12,4 @@ public:
 
 
 
-#endif //TRAVELLER_GRAPH_LISTNODEELEMENT_HH
+#endif //NORB_DSA_LISTNODEELEMENT_HH

@@ -1,9 +1,6 @@
-//
-// Created by norbert on 23.04.20.
-//
 
-#ifndef TRAVELLER_GRAPH_LISTNODEEND_HH
-#define TRAVELLER_GRAPH_LISTNODEEND_HH
+#ifndef NORB_DSA_LISTNODEEND_HH
+#define NORB_DSA_LISTNODEEND_HH
 
 #include <List/ListNodeElement.hh>
 #include <List/ListNode.hh>
@@ -23,4 +20,4 @@ template <typename T> ListNodeElement<T>* ListNodeEnd<T>::add(T Elem) {
 template <typename T> int ListNodeEnd<T>::size() {
     return 0;
 }
-#endif //TRAVELLER_GRAPH_LISTNODEEND_HH
+#endif //NORB_DSA_LISTNODEEND_HH

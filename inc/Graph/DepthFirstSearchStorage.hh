@@ -1,9 +1,6 @@
-//
-// Created by norbert on 28.04.20.
-//
 
-#ifndef TRAVELLER_GRAPH_DEPTHFIRSTSEARCHSTORAGE_HH
-#define TRAVELLER_GRAPH_DEPTHFIRSTSEARCHSTORAGE_HH
+#ifndef NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
+#define NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
 
 
 template <typename T> class GraphNode;
@@ -24,4 +21,4 @@ template <typename T> struct DepthFirstSearchStorage{
 };
 
 
-#endif //TRAVELLER_GRAPH_DEPTHFIRSTSEARCHSTORAGE_HH
+#endif //NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH

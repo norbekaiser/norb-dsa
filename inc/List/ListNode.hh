@@ -1,9 +1,6 @@
-//
-// Created by norbert on 23.04.20.
-//
 
-#ifndef TRAVELLER_GRAPH_LISTNODE_HH
-#define TRAVELLER_GRAPH_LISTNODE_HH
+#ifndef NORB_DSA_LISTNODE_HH
+#define NORB_DSA_LISTNODE_HH
 
 #include <List/ListNodeElement.hh>
 
@@ -34,4 +31,4 @@ template <typename T> ListNodeElement<T>* ListNode<T>::add(T Elem) {
 template <typename T> int ListNode<T>::size() {
     return 1 + next->size();
 }
-#endif //TRAVELLER_GRAPH_LISTNODE_HH
+#endif //NORB_DSA_LISTNODE_HH

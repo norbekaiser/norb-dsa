@@ -1,6 +1,6 @@
 
-#ifndef TRAVELLER_GRAPH_GRAPH_HH
-#define TRAVELLER_GRAPH_GRAPH_HH
+#ifndef NORB_DSA_GRAPH_HH
+#define NORB_DSA_GRAPH_HH
 
 #include <memory>
 #include <vector>
@@ -33,4 +33,4 @@ template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> Graph<T>::getNo
     return Nodes;
 }
 
-#endif //TRAVELLER_GRAPH_GRAPH_HH
+#endif //NORB_DSA_GRAPH_HH
