@@ -19,20 +19,20 @@
 
 template <typename T> class Graph;
 template <typename T> class GraphNode;
-template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
+template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
 
 
 #include "Graph.hh"
 #include "GraphNode.hh"
 #include "DepthFirstSearch.hh"
 
-template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G)
+template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G)
 {
     DepthFirstSearchStorage<T> DFSS;
-    std::vector<std::shared_ptr<GraphNode<T>>> List;
+    std::deque<std::shared_ptr<GraphNode<T>>> List;
     DFSS.OnBlack.push_back(std::move(
             [&List](std::shared_ptr<GraphNode<T>> Node){
-                List.push_back(Node);
+                List.push_front(Node);
             }));
     DepthFirstSearch(G,DFSS);
     return List;
