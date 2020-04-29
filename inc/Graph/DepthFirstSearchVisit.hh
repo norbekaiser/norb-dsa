@@ -29,7 +29,7 @@ template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &sto
     std::for_each(storage.OnGray.begin(),storage.OnGray.end(),[&Node](auto f){f(Node);});
     for(auto &V: Node->getVedges())
     {
-        if(!storage.Colors.contains(Node) || storage.Colors[Node] ==storage.white)
+        if(!storage.Colors.contains(V.getTarget()) || storage.Colors[V.getTarget()] ==storage.white)
         {
             storage.pi[V.getTarget()] = Node;
             DepthFirstSearchVisit(storage,V.getTarget());

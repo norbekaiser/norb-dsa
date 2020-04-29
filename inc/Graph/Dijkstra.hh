@@ -10,33 +10,7 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef NORB_DSA_TOPOLOGICALSORT_HH
-#define NORB_DSA_TOPOLOGICALSORT_HH
+#ifndef LIBNORB_DSA_DIJKSTRA_HH
+#define LIBNORB_DSA_DIJKSTRA_HH
 
-#include <deque>
-#include <memory>
-
-
-template <typename T> class Graph;
-template <typename T> class GraphNode;
-template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
-
-
-#include "Graph.hh"
-#include "GraphNode.hh"
-#include "DepthFirstSearch.hh"
-
-template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G)
-{
-    DepthFirstSearchStorage<T> DFSS;
-    std::deque<std::shared_ptr<GraphNode<T>>> List;
-    DFSS.OnBlack.push_back(std::move(
-            [&List](std::shared_ptr<GraphNode<T>> Node){
-                List.push_front(Node);
-            }));
-    DepthFirstSearch(G,DFSS);
-    return List;
-
-}
-
-#endif //NORB_DSA_TOPOLOGICALSORT_HH
+#endif //LIBNORB_DSA_DIJKSTRA_HH
