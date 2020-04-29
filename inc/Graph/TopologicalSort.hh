@@ -22,9 +22,9 @@ template <typename T> class GraphNode;
 template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
 
 
-#include "Graph/Graph.hh"
-#include "Graph/GraphNode.hh"
-#include "Graph/DepthFirstSearch.hh"
+#include "Graph.hh"
+#include "GraphNode.hh"
+#include "DepthFirstSearch.hh"
 
 template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G)
 {
