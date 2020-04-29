@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "Graph/Graph.hh"
-#include "Graph/ToplogicalSort.hh"
+#include "Graph/TopologicalSort.hh"
 int main(int argc, char** argv)
 {
     using std::cout;

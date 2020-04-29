@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef NORB_DSA_TOPLOGICALSORT_HH
-#define NORB_DSA_TOPLOGICALSORT_HH
+#ifndef NORB_DSA_TOPOLOGICALSORT_HH
+#define NORB_DSA_TOPOLOGICALSORT_HH
 
 #include <deque>
 #include <memory>
@@ -39,4 +39,4 @@ template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> TopologicalSort
 
 }
 
-#endif //NORB_DSA_TOPLOGICALSORT_HH
+#endif //NORB_DSA_TOPOLOGICALSORT_HH

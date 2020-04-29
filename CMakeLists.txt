@@ -6,10 +6,9 @@ target_sources(libnorb-dsa INTERFACE
         inc/Graph/DepthFirstSearchStorage.hh
         inc/Graph/DepthFirstSearchVisit.hh
         inc/Graph/Graph.hh
-        inc/Graph/GraphAttribute.hh
         inc/Graph/GraphNode.hh
         inc/Graph/GraphVedge.hh
-        inc/Graph/ToplogicalSort.hh
+        inc/Graph/TopologicalSort.hh
         )
 
 target_include_directories(libnorb-dsa INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
