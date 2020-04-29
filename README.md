@@ -5,3 +5,9 @@
  * TopologicalSort
 
 
+
+## Repos
+ * [Gitlab](https://gitlab.norbert-ruehl.de/nruehl/norb-dsa)
+ * [Github](https://github.com/norbekaiser/norb-dsa)
+ 
+
