@@ -1,4 +1,4 @@
-# Norb DSA
+# Libnorbdsa
 
 ## Small Library Project to play around with algorithms and datastructures
  * DepthFirstSearch
