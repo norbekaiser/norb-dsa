@@ -14,13 +14,14 @@ int main(int argc, char** argv)
     Graph<std::string> G;
     cout << "Adding Elements to Graph" << endl;
 
+
     auto g_ptr_unterhemd = G.addToGraph(Unterhemd);
-    auto g_ptr_pullover = G.addToGraph(Pullover);
-    auto g_ptr_mantel = G.addToGraph(Mantel);
     auto g_ptr_unterhose = G.addToGraph(Unterhose);
-    auto g_ptr_hose = G.addToGraph(Hose);
     auto g_ptr_socken = G.addToGraph(Socken);
+    auto g_ptr_pullover = G.addToGraph(Pullover);
+    auto g_ptr_hose = G.addToGraph(Hose);
     auto g_ptr_schuhe = G.addToGraph(Schuhe);
+    auto g_ptr_mantel = G.addToGraph(Mantel);
 
 
     cout << "Connecting Nodes as they were all lonely" << endl;
