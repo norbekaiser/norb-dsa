@@ -9,34 +9,19 @@ int main(int argc, char** argv)
     using std::cout;
     using std::endl;
     cout << "Generating Elements" << endl;
-    std::string Schuhe="Schuhe",Socken="Socken",Mantel="Mantel",Hose="Hose",Unterhose="Unterhose",Pullover="Pullover",Unterhemd="Unterhemd";
+    int a='a',b='b',c='c',d='d';
 
-    Graph<std::string> G;
+    Graph<decltype(a)> G;
     cout << "Adding Elements to Graph" << endl;
-
-    auto g_ptr_unterhemd = G.addToGraph(Unterhemd);
-    auto g_ptr_pullover = G.addToGraph(Pullover);
-    auto g_ptr_mantel = G.addToGraph(Mantel);
-    auto g_ptr_unterhose = G.addToGraph(Unterhose);
-    auto g_ptr_hose = G.addToGraph(Hose);
-    auto g_ptr_socken = G.addToGraph(Socken);
-    auto g_ptr_schuhe = G.addToGraph(Schuhe);
-
-
+    auto g_ptr_a = G.addToGraph(a);
+    auto g_ptr_b = G.addToGraph(b);
+    auto g_ptr_c = G.addToGraph(c);
+    auto g_ptr_d = G.addToGraph(d);
     cout << "Connecting Nodes as they were all lonely" << endl;
-    g_ptr_unterhemd->addEdge(g_ptr_pullover);
-    g_ptr_pullover->addEdge(g_ptr_mantel);
-    g_ptr_unterhose->addEdge(g_ptr_hose);
-    g_ptr_hose->addEdge(g_ptr_mantel);
-    g_ptr_hose->addEdge(g_ptr_schuhe);
-    g_ptr_socken->addEdge(g_ptr_schuhe);
-    cout << "Sorting Topologically" << endl;
-    auto List = TopologicalSort<std::string>(G);
-    cout << "Let's see how strange we dress us today" << endl;
-    for(auto &Node: List)
-    {
-        cout << Node->getElem() << endl;
-    }
+    g_ptr_a->addEdge(g_ptr_d);
+    g_ptr_a->addEdge(g_ptr_b);
+    g_ptr_b->addEdge(g_ptr_c);
+    g_ptr_d->addEdge(g_ptr_c);
     return 0;
 
 
