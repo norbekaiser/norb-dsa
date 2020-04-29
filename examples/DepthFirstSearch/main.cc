@@ -39,7 +39,6 @@ int main(int argc, char** argv)
     g_ptr_z->addEdge(g_ptr_z);
     cout << "Depth First Search" << endl;
     DepthFirstSearch<decltype(u)>(G);
-
     return 0;
 
 
