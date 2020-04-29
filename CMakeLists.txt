@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
-project(datastructures CXX)
-add_library(LibDataStructures INTERFACE)
-target_sources(LibDataStructures INTERFACE
+project(libnorb-dsa CXX)
+add_library(libnorb-dsa INTERFACE)
+target_sources(libnorb-dsa INTERFACE
         inc/Graph/DepthFirstSearch.hh
         inc/Graph/DepthFirstSearchStorage.hh
         inc/Graph/DepthFirstSearchVisit.hh
@@ -12,5 +12,7 @@ target_sources(LibDataStructures INTERFACE
         inc/Graph/ToplogicalSort.hh
         )
 
-target_include_directories(LibDataStructures INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
-target_compile_features(LibDataStructures INTERFACE cxx_std_20)
+target_include_directories(libnorb-dsa INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+target_compile_features(libnorb-dsa INTERFACE cxx_std_20)
+
+add_subdirectory(examples)
