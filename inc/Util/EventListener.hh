@@ -13,10 +13,4 @@
 #ifndef LIBNORB_DSA_EVENTLISTENER_HH
 #define LIBNORB_DSA_EVENTLISTENER_HH
 
-
-class EventListener {
-
-};
-
-
 #endif //LIBNORB_DSA_EVENTLISTENER_HH
