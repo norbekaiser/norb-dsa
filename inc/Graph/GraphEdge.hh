@@ -14,6 +14,8 @@
 #define LIBNORB_DSA_GRAPHVEDGE_HH
 
 #include <memory>
+#include <tuple>
+
 namespace norbdsa
 {
     template <typename T,typename ... U> class GraphNode;
@@ -24,26 +26,28 @@ namespace norbdsa
      */
     template <typename T,typename ... U> class GraphEdge {
     public:
-        GraphEdge(std::shared_ptr<GraphNode<T>> Target);
-        const std::shared_ptr<GraphNode<T>> &getTarget() const;
+        GraphEdge(std::shared_ptr<GraphNode<T,U...>> Target);
+        const std::shared_ptr<GraphNode<T,U...>> &getTarget() const;
         const std::tuple<U...> &getWeights() const;
     private:
         std::shared_ptr<GraphNode<T>> Target;
         std::tuple<U...> weights;
     };
 }
+
 #include "GraphNode.hh"
+
 namespace norbdsa
 {
-    template <typename T,typename ... U> GraphEdge<T,U...>::GraphEdge(std::shared_ptr<GraphNode<T>> Target): Target(std::move(Target)){
+    template <typename T,typename ... U> GraphEdge<T,U...>::GraphEdge(std::shared_ptr<GraphNode<T,U...>> Target): Target(std::move(Target)){
 
     }
 
-    template<typename T, typename ... U> const std::shared_ptr<GraphNode<T>> &GraphEdge<T,U...>::getTarget() const {
+    template<typename T, typename ... U> const std::shared_ptr<GraphNode<T,U...>> &GraphEdge<T,U...>::getTarget() const {
         return Target;
     }
 
-    template<typename T, typename... U> const std::tuple<U...> &GraphEdge<T, U...>::getWeights() const {
+    template<typename T, typename ... U> const std::tuple<U...> &GraphEdge<T, U...>::getWeights() const {
         return weights;
     }
 }

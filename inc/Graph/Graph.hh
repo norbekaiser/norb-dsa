@@ -15,35 +15,39 @@
 
 #include <memory>
 #include <vector>
+
 namespace norbdsa
 {
     template <typename T,typename ... U> class GraphNode;
-    template <typename T> class Graph
+    template <typename T,typename ... U> class Graph
     {
     private:
         std::vector<std::shared_ptr<GraphNode<T>>> Nodes;
     public:
-        std::shared_ptr<GraphNode<T>> addToGraph(T Elem);
-        std::shared_ptr<GraphNode<T>> addNode(std::shared_ptr<GraphNode<T>> Node);
-        std::vector<std::shared_ptr<GraphNode<T>>> getNodes();
+        std::shared_ptr<GraphNode<T,U...>> addToGraph(T Elem);
+        std::shared_ptr<GraphNode<T,U...>> addNode(std::shared_ptr<GraphNode<T,U...>> Node);
+        std::vector<std::shared_ptr<GraphNode<T,U...>>> getNodes();
     };
 }
+
 #include "GraphNode.hh"
+
 namespace norbdsa
 {
-    template <typename T> std::shared_ptr<GraphNode<T>> Graph<T>::addToGraph(T Elem)
+    template <typename T,typename ... U> std::shared_ptr<GraphNode<T,U...>> Graph<T,U...>::addToGraph(T Elem)
     {
         auto ptr = std::make_shared<GraphNode<T>>(Elem);
         return addNode(std::move(ptr));
     }
 
-    template <typename T> std::shared_ptr<GraphNode<T>> Graph<T>::addNode(std::shared_ptr<GraphNode<T>> Node) {
+    template <typename T,typename ... U> std::shared_ptr<GraphNode<T,U...>> Graph<T,U...>::addNode(std::shared_ptr<GraphNode<T,U...>> Node) {
         Nodes.push_back(Node);
         return Node;
     }
 
-    template <typename T> std::vector<std::shared_ptr<GraphNode<T>>> Graph<T>::getNodes() {
+    template <typename T,typename ... U> std::vector<std::shared_ptr<GraphNode<T,U...>>> Graph<T,U...>::getNodes() {
         return Nodes;
     }
 }
+
 #endif //NORB_DSA_GRAPH_HH
