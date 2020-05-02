@@ -14,7 +14,7 @@
 #define NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
 
 
-template <typename T> class GraphNode;
+template <typename T,typename ... U> class GraphNode;
 template <typename T> struct DepthFirstSearchStorage;
 
 #include <memory>

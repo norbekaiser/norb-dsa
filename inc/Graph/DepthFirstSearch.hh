@@ -17,7 +17,17 @@
 
 template <typename T> class Graph;
 template <typename T> struct DepthFirstSearchStorage;
+/**
+ * @tparam T
+ * @param G
+ */
 template <typename T> void DepthFirstSearch(Graph<T> G);
+/**
+ *
+ * @tparam T
+ * @param G
+ * @param storage
+ */
 template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage);
 
 

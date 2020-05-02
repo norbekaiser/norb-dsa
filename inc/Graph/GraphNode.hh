@@ -16,37 +16,42 @@
 #include <vector>
 #include <memory>
 
-template <typename T,typename U> class GraphVedge;
-template <typename T> class GraphNode
+template <typename T,typename ... U> class GraphEdge;
+/**
+ *
+ * @tparam T
+ * @tparam U
+ */
+template <typename T,typename ... U> class GraphNode
 {
 public:
     GraphNode(T Elem);
-    GraphVedge<T,bool> addEdge(std::shared_ptr<GraphNode<T>> Target);
-    const std::vector<GraphVedge<T, bool>> &getVedges() const;
+    GraphEdge<T,bool> addEdge(std::shared_ptr<GraphNode<T>> Target);
+    const std::vector<GraphEdge<T, bool>> &getVedges() const;
     T getElem() const;
 private:
     T Elem;
-    std::vector<GraphVedge<T,bool>> Vedges;
+    std::vector<GraphEdge<T,bool>> Vedges;
 
 };
 
-#include "GraphVedge.hh"
+#include "GraphEdge.hh"
 
-template <typename T> GraphNode<T>::GraphNode(T Elem): Elem(Elem) {
+template <typename T,typename ... U> GraphNode<T,U...>::GraphNode(T Elem): Elem(Elem) {
 
 }
 
-template <typename T> GraphVedge<T,bool> GraphNode<T>::addEdge(std::shared_ptr<GraphNode<T>> Target){
-    GraphVedge<T,bool> Vedge(std::move(Target));
+template <typename T,typename ... U> GraphEdge<T,bool> GraphNode<T,U...>::addEdge(std::shared_ptr<GraphNode<T>> Target){
+    GraphEdge<T,bool> Vedge(std::move(Target));
     this->Vedges.push_back(Vedge);
     return Vedge;
 }
 
-template<typename T> const std::vector<GraphVedge<T, bool>> &GraphNode<T>::getVedges() const {
+template<typename T,typename ... U> const std::vector<GraphEdge<T, bool>> &GraphNode<T,U...>::getVedges() const {
     return Vedges;
 }
 
-template<typename T> T GraphNode<T>::getElem() const {
+template<typename T,typename ... U> T GraphNode<T,U...>::getElem() const {
     return Elem;
 }
 
