@@ -16,7 +16,7 @@
 #include <memory>
 #include <vector>
 
-template <typename T> class GraphNode;
+template <typename T,typename ... U> class GraphNode;
 template <typename T> class Graph
 {
 private:
@@ -34,7 +34,7 @@ template <typename T> std::shared_ptr<GraphNode<T>> Graph<T>::addToGraph(T Elem)
     auto ptr = std::make_shared<GraphNode<T>>(Elem);
     return addNode(std::move(ptr));
 }
-//todo make sure it only exists once or so, e.g. map?
+
 template <typename T> std::shared_ptr<GraphNode<T>> Graph<T>::addNode(std::shared_ptr<GraphNode<T>> Node) {
     Nodes.push_back(Node);
     return Node;
