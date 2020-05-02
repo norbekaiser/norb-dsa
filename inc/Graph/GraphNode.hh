@@ -17,44 +17,45 @@
 #include <memory>
 namespace norbdsa
 {
-    template <typename T,typename ... U> class GraphEdge;
+    template <typename T, typename ... U> class GraphEdge;
     /**
      *
      * @tparam T
      * @tparam U
      */
-    template <typename T,typename ... U> class GraphNode
+    template <typename T, typename ... U> class GraphNode
     {
     public:
         GraphNode(T Elem);
-        GraphEdge<T,bool> addEdge(std::shared_ptr<GraphNode<T>> Target);
-        const std::vector<GraphEdge<T, bool>> &getVedges() const;
+        GraphEdge<T,U...> addEdge(std::shared_ptr<GraphNode<T,U...>> Target);
+        const std::vector<GraphEdge<T,U...>> &getVedges() const;
         T getElem() const;
     private:
         T Elem;
-        std::vector<GraphEdge<T,bool>> Vedges;
+        std::vector<GraphEdge<T,U...>> Vedges;
 
     };
 }
 #include "GraphEdge.hh"
 namespace norbdsa
 {
-    template <typename T,typename ... U> GraphNode<T,U...>::GraphNode(T Elem): Elem(Elem) {
+    template <typename T, typename ... U> GraphNode<T,U...>::GraphNode(T Elem): Elem(Elem) {
 
     }
 
-    template <typename T,typename ... U> GraphEdge<T,bool> GraphNode<T,U...>::addEdge(std::shared_ptr<GraphNode<T>> Target){
-        GraphEdge<T,bool> Vedge(std::move(Target));
+    template <typename T, typename ... U> GraphEdge<T,U...> GraphNode<T,U...>::addEdge(std::shared_ptr<GraphNode<T,U...>> Target){
+        GraphEdge<T,U...> Vedge(std::move(Target));
         this->Vedges.push_back(Vedge);
         return Vedge;
     }
 
-    template<typename T,typename ... U> const std::vector<GraphEdge<T, bool>> &GraphNode<T,U...>::getVedges() const {
+    template<typename T, typename ... U> const std::vector<GraphEdge<T,U...>> &GraphNode<T,U...>::getVedges() const {
         return Vedges;
     }
 
-    template<typename T,typename ... U> T GraphNode<T,U...>::getElem() const {
+    template<typename T, typename ... U> T GraphNode<T,U...>::getElem() const {
         return Elem;
     }
 }
+
 #endif //NORB_DSA_GRAPHNODE_HH

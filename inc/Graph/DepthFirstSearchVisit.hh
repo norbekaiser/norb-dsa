@@ -14,18 +14,24 @@
 #define LIBNORB_DSA_DEPTHFIRSTSEARCHVISIT_HH
 
 #include <memory>
+
 namespace norbdsa
 {
-    template <typename T> struct DepthFirstSearchStorage;
+    template <typename T,typename ... U> struct DepthFirstSearchStorage;
     template <typename T,typename ... U> struct GraphNode;
-    template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node);
+    /**
+     *
+     */
+    template <typename T,typename ... U> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node);
 }
+
 #include "GraphNode.hh"
 #include "DepthFirstSearchStorage.hh"
 #include <algorithm>
+
 namespace norbdsa
 {
-    template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node)
+    template <typename T,typename ... U> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node)
     {
         storage.time = storage.time + 1;
         storage.Colors[Node] = storage.gray;
@@ -43,6 +49,5 @@ namespace norbdsa
         std::for_each(storage.OnBlack.begin(),storage.OnBlack.end(),[&Node](auto f){f(Node);});
     };
 }
-
 
 #endif //NORB_DSA_DEPTHFIRSTSEARCHVISIT_HH
