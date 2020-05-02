@@ -1,0 +1,10 @@
+pages:
+  image: norbnorb/doxygen
+  script:
+    - doxygen ${doxyfile}
+    - mv doxygen/html public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
