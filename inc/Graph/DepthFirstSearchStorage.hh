@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
-#define NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
+#ifndef LIBNORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
+#define LIBNORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
 
 
 template <typename T,typename ... U> class GraphNode;

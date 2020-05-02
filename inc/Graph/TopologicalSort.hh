@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef NORB_DSA_TOPOLOGICALSORT_HH
-#define NORB_DSA_TOPOLOGICALSORT_HH
+#ifndef LIBNORB_DSA_TOPOLOGICALSORT_HH
+#define LIBNORB_DSA_TOPOLOGICALSORT_HH
 
 #include <deque>
 #include <memory>

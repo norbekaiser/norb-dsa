@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef NORB_DSA_GRAPH_HH
-#define NORB_DSA_GRAPH_HH
+#ifndef LIBNORB_DSA_GRAPH_HH
+#define LIBNORB_DSA_GRAPH_HH
 
 #include <memory>
 #include <vector>
