@@ -19,6 +19,7 @@ namespace norbdsa
     /**
      *
      * @tparam T
+     * @tparam U
      */
     template <typename T,typename ... U> struct BreadthFirstSearchStorage;
 }

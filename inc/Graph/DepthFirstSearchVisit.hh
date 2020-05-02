@@ -21,6 +21,10 @@ namespace norbdsa
     template <typename T,typename ... U> struct GraphNode;
     /**
      *
+     * @tparam T
+     * @tparam U
+     * @param storage
+     * @param Node
      */
     template <typename T,typename ... U> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node);
 }

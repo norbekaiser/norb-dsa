@@ -18,13 +18,16 @@ namespace norbdsa
     template <typename T,typename ... U> class Graph;
     template <typename T,typename ... U> struct DepthFirstSearchStorage;
     /**
+     *
      * @tparam T
+     * @tparam U
      * @param G
      */
     template <typename T,typename ... U> void DepthFirstSearch(Graph<T,U...> G);
     /**
      *
      * @tparam T
+     * @tparam U
      * @param G
      * @param storage
      */

@@ -20,7 +20,22 @@ namespace norbdsa
     template <typename T,typename ... U> class Graph;
     template <typename T,typename ... U> class GraphNode;
     template <typename T,typename ... U> struct BreadthFirstSearchStorage;
+    /**
+     *
+     * @tparam T
+     * @tparam U
+     * @param G
+     * @param S
+     */
     template <typename T,typename ... U> void BreadthFirstSearch(Graph<T,U...> G,std::shared_ptr<GraphNode<T,U...>> S);
+    /**
+     *
+     * @tparam T
+     * @tparam U
+     * @param G
+     * @param S
+     * @param storage
+     */
     template <typename T,typename ... U> void BreadthFirstSearch(Graph<T,U...> G,std::shared_ptr<GraphNode<T,U...>> S,BreadthFirstSearchStorage<T,U...> &storage);
 };
 

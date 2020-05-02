@@ -20,6 +20,13 @@ namespace norbdsa
 {
     template <typename T, typename ... U> class Graph;
     template <typename T, typename ... U> class GraphNode;
+    /**
+     *
+     * @tparam T
+     * @tparam U
+     * @param G
+     * @return
+     */
     template <typename T, typename ... U> std::deque<std::shared_ptr<GraphNode<T,U...>>> TopologicalSort(Graph<T,U...> G);
 }
 
