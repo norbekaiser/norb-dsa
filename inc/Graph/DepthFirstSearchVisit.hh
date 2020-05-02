@@ -36,7 +36,7 @@ namespace norbdsa
         storage.time = storage.time + 1;
         storage.Colors[Node] = storage.gray;
         std::for_each(storage.OnGray.begin(),storage.OnGray.end(),[&Node](auto f){f(Node);});
-        for(auto &V: Node->getVedges())
+        for(auto &V: Node->getEdges())
         {
             if(!storage.Colors.contains(V.getTarget()) || storage.Colors[V.getTarget()] ==storage.white)
             {

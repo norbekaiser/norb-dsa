@@ -10,11 +10,7 @@
 #
 #     3. This notice may not be removed or altered from any source distribution.
 
-#Example Project with BreadthFirstSearch
-add_subdirectory(BreadthFirstSearch)
-#Example Project with DepthFirstSearch
-add_subdirectory(DepthFirstSearch)
-#Example Project with TopologicalSort
-add_subdirectory(ToplogicalSort)
-#Example Project with Dijkstra
-#add_subdirectory(Dijkstra)
+cmake_minimum_required(VERSION 3.16)
+project(example-BreadthFirstSearch CXX)
+add_executable(example-BreadthFirstSearch BreadthFirstSearch.cc)
+target_link_libraries(example-BreadthFirstSearch libnorb-dsa)

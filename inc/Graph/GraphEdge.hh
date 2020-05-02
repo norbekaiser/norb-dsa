@@ -39,15 +39,18 @@ namespace norbdsa
 
 namespace norbdsa
 {
-    template <typename T,typename ... U> GraphEdge<T,U...>::GraphEdge(std::shared_ptr<GraphNode<T,U...>> Target): Target(std::move(Target)){
+    template <typename T,typename ... U> GraphEdge<T,U...>::GraphEdge(std::shared_ptr<GraphNode<T,U...>> Target): Target(std::move(Target))
+    {
 
     }
 
-    template<typename T, typename ... U> const std::shared_ptr<GraphNode<T,U...>> &GraphEdge<T,U...>::getTarget() const {
+    template<typename T, typename ... U> const std::shared_ptr<GraphNode<T,U...>> &GraphEdge<T,U...>::getTarget() const
+    {
         return Target;
     }
 
-    template<typename T, typename ... U> const std::tuple<U...> &GraphEdge<T, U...>::getWeights() const {
+    template<typename T, typename ... U> const std::tuple<U...> &GraphEdge<T, U...>::getWeights() const
+    {
         return weights;
     }
 }

@@ -14,6 +14,8 @@ cmake_minimum_required(VERSION 3.16)
 project(libnorb-dsa CXX)
 add_library(libnorb-dsa INTERFACE)
 target_sources(libnorb-dsa INTERFACE
+        inc/Graph/BreadthFirstSearch.hh
+        inc/Graph/BreadthFirstSearchStorage.hh
         inc/Graph/DepthFirstSearch.hh
         inc/Graph/DepthFirstSearchStorage.hh
         inc/Graph/DepthFirstSearchVisit.hh

@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef LIBNORB_DSA_DEPTHFIRSTSEARCH_HH
-#define LIBNORB_DSA_DEPTHFIRSTSEARCH_HH
+#ifndef LIBNORB_DSA_BREADTHFIRSTSEARCH_HH
+#define LIBNORB_DSA_BREADTHFIRSTSEARCH_HH
 
 namespace norbdsa
 {
@@ -21,14 +21,14 @@ namespace norbdsa
      * @tparam T
      * @param G
      */
-    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G);
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T,U...> G);
     /**
      *
      * @tparam T
      * @param G
      * @param storage
      */
-    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage);
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T,U...> G,DepthFirstSearchStorage<T,U...> &storage);
 
 }
 
@@ -39,13 +39,13 @@ namespace norbdsa
 
 namespace norbdsa
 {
-    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G)
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T,U...> G)
     {
         DepthFirstSearchStorage<T> DFSS;
         DepthFirstSearch(std::move(G),DFSS);
     };
 
-    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage)
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T,U...> G,DepthFirstSearchStorage<T,U...> &storage)
     {
         for(auto &Node: G.getNodes())
         {
@@ -54,7 +54,8 @@ namespace norbdsa
         storage.time=0;
         for(auto &Node: G.getNodes())
         {
-            if(!storage.Colors.contains(Node) || storage.Colors[Node]==storage.white){
+            if(!storage.Colors.contains(Node) || storage.Colors[Node]==storage.white)
+            {
                 DepthFirstSearchVisit(storage,Node);
             }
         }

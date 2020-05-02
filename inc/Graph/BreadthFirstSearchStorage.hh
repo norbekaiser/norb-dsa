@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef LIBNORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
-#define LIBNORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
+#ifndef LIBNORB_DSA_BREADTHFIRSTSEARCHSTORAGE_HH
+#define LIBNORB_DSA_BREADTHFIRSTSEARCHSTORAGE_HH
 
 namespace norbdsa
 {
@@ -20,7 +20,7 @@ namespace norbdsa
      *
      * @tparam T
      */
-    template <typename T,typename ... U> struct DepthFirstSearchStorage;
+    template <typename T,typename ... U> struct BreadthFirstSearchStorage;
 }
 
 #include <memory>
@@ -30,7 +30,7 @@ namespace norbdsa
 
 namespace norbdsa
 {
-    template <typename T,typename ... U> struct DepthFirstSearchStorage
+    template <typename T,typename ... U> struct BreadthFirstSearchStorage
     {
         enum color{white,gray,black};
         std::unordered_map<std::shared_ptr<GraphNode<T,U...>>,color> Colors;
@@ -41,4 +41,5 @@ namespace norbdsa
     };
 }
 
-#endif //NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
+#endif //LIBNORB_DSA_BREADTHFIRSTSEARCHSTORAGE_HH
+
