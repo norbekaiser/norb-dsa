@@ -16,27 +16,29 @@
 #include <deque>
 #include <memory>
 
-
-template <typename T> class Graph;
-template <typename T,typename ... U> class GraphNode;
-template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
-
+namespace norbdsa
+{
+    template <typename T> class Graph;
+    template <typename T,typename ... U> class GraphNode;
+    template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
+}
 
 #include "Graph.hh"
 #include "GraphNode.hh"
 #include "DepthFirstSearch.hh"
-
-template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G)
+namespace norbdsa
 {
-    DepthFirstSearchStorage<T> DFSS;
-    std::deque<std::shared_ptr<GraphNode<T>>> List;
-    DFSS.OnBlack.push_back(std::move(
-            [&List](std::shared_ptr<GraphNode<T>> Node){
-                List.push_front(Node);
-            }));
-    DepthFirstSearch(G,DFSS);
-    return List;
+    template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G)
+    {
+        DepthFirstSearchStorage<T> DFSS;
+        std::deque<std::shared_ptr<GraphNode<T>>> List;
+        DFSS.OnBlack.push_back(std::move(
+                [&List](std::shared_ptr<GraphNode<T>> Node){
+                    List.push_front(Node);
+                }));
+        DepthFirstSearch(G,DFSS);
+        return List;
 
+    }
 }
-
 #endif //NORB_DSA_TOPOLOGICALSORT_HH

@@ -15,44 +15,46 @@
 
 #include <vector>
 #include <memory>
-
-template <typename T,typename ... U> class GraphEdge;
-/**
- *
- * @tparam T
- * @tparam U
- */
-template <typename T,typename ... U> class GraphNode
+namespace norbdsa
 {
-public:
-    GraphNode(T Elem);
-    GraphEdge<T,bool> addEdge(std::shared_ptr<GraphNode<T>> Target);
-    const std::vector<GraphEdge<T, bool>> &getVedges() const;
-    T getElem() const;
-private:
-    T Elem;
-    std::vector<GraphEdge<T,bool>> Vedges;
+    template <typename T,typename ... U> class GraphEdge;
+    /**
+     *
+     * @tparam T
+     * @tparam U
+     */
+    template <typename T,typename ... U> class GraphNode
+    {
+    public:
+        GraphNode(T Elem);
+        GraphEdge<T,bool> addEdge(std::shared_ptr<GraphNode<T>> Target);
+        const std::vector<GraphEdge<T, bool>> &getVedges() const;
+        T getElem() const;
+    private:
+        T Elem;
+        std::vector<GraphEdge<T,bool>> Vedges;
 
-};
-
+    };
+}
 #include "GraphEdge.hh"
+namespace norbdsa
+{
+    template <typename T,typename ... U> GraphNode<T,U...>::GraphNode(T Elem): Elem(Elem) {
 
-template <typename T,typename ... U> GraphNode<T,U...>::GraphNode(T Elem): Elem(Elem) {
+    }
 
+    template <typename T,typename ... U> GraphEdge<T,bool> GraphNode<T,U...>::addEdge(std::shared_ptr<GraphNode<T>> Target){
+        GraphEdge<T,bool> Vedge(std::move(Target));
+        this->Vedges.push_back(Vedge);
+        return Vedge;
+    }
+
+    template<typename T,typename ... U> const std::vector<GraphEdge<T, bool>> &GraphNode<T,U...>::getVedges() const {
+        return Vedges;
+    }
+
+    template<typename T,typename ... U> T GraphNode<T,U...>::getElem() const {
+        return Elem;
+    }
 }
-
-template <typename T,typename ... U> GraphEdge<T,bool> GraphNode<T,U...>::addEdge(std::shared_ptr<GraphNode<T>> Target){
-    GraphEdge<T,bool> Vedge(std::move(Target));
-    this->Vedges.push_back(Vedge);
-    return Vedge;
-}
-
-template<typename T,typename ... U> const std::vector<GraphEdge<T, bool>> &GraphNode<T,U...>::getVedges() const {
-    return Vedges;
-}
-
-template<typename T,typename ... U> T GraphNode<T,U...>::getElem() const {
-    return Elem;
-}
-
 #endif //NORB_DSA_GRAPHNODE_HH
