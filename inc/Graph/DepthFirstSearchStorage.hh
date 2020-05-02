@@ -16,20 +16,26 @@
 namespace norbdsa
 {
     template <typename T,typename ... U> class GraphNode;
-    template <typename T> struct DepthFirstSearchStorage;
+    /**
+     *
+     * @tparam T
+     */
+    template <typename T,typename ... U> struct DepthFirstSearchStorage;
 }
+
 #include <memory>
 #include <unordered_map>
 #include <functional>
 #include "GraphNode.hh"
+
 namespace norbdsa
 {
-    template <typename T> struct DepthFirstSearchStorage{
+    template <typename T,typename ... U> struct DepthFirstSearchStorage{
         enum color{white,gray,black};
-        std::unordered_map<std::shared_ptr<GraphNode<T>>,color> Colors;
-        std::unordered_map<std::shared_ptr<GraphNode<T>>,std::shared_ptr<GraphNode<T>>> pi;
-        std::vector<std::function<void(std::shared_ptr<GraphNode<T>>)>> OnBlack;
-        std::vector<std::function<void(std::shared_ptr<GraphNode<T>>)>> OnGray;
+        std::unordered_map<std::shared_ptr<GraphNode<T,U...>>,color> Colors;
+        std::unordered_map<std::shared_ptr<GraphNode<T,U...>>,std::shared_ptr<GraphNode<T>>> pi;
+        std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnBlack;
+        std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnGray;
         long time=0;
     };
 }
