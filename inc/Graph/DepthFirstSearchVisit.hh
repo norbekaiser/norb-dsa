@@ -14,35 +14,35 @@
 #define LIBNORB_DSA_DEPTHFIRSTSEARCHVISIT_HH
 
 #include <memory>
-
-template <typename T> struct DepthFirstSearchStorage;
-template <typename T,typename ... U> struct GraphNode;
-template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node);
-
+namespace norbdsa
+{
+    template <typename T> struct DepthFirstSearchStorage;
+    template <typename T,typename ... U> struct GraphNode;
+    template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node);
+}
 #include "GraphNode.hh"
 #include "DepthFirstSearchStorage.hh"
 #include <algorithm>
-template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node)
+namespace norbdsa
 {
-    storage.time = storage.time + 1;
-    storage.Colors[Node] = storage.gray;
-    std::for_each(storage.OnGray.begin(),storage.OnGray.end(),[&Node](auto f){f(Node);});
-    for(auto &V: Node->getVedges())
+    template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node)
     {
-        if(!storage.Colors.contains(V.getTarget()) || storage.Colors[V.getTarget()] ==storage.white)
+        storage.time = storage.time + 1;
+        storage.Colors[Node] = storage.gray;
+        std::for_each(storage.OnGray.begin(),storage.OnGray.end(),[&Node](auto f){f(Node);});
+        for(auto &V: Node->getVedges())
         {
-            storage.pi[V.getTarget()] = Node;
-            DepthFirstSearchVisit(storage,V.getTarget());
+            if(!storage.Colors.contains(V.getTarget()) || storage.Colors[V.getTarget()] ==storage.white)
+            {
+                storage.pi[V.getTarget()] = Node;
+                DepthFirstSearchVisit(storage,V.getTarget());
+            }
         }
-    }
-    storage.time = storage.time + 1;
-    storage.Colors[Node] = storage.black;
-    std::for_each(storage.OnBlack.begin(),storage.OnBlack.end(),[&Node](auto f){f(Node);});
-
-
-
-
-};
+        storage.time = storage.time + 1;
+        storage.Colors[Node] = storage.black;
+        std::for_each(storage.OnBlack.begin(),storage.OnBlack.end(),[&Node](auto f){f(Node);});
+    };
+}
 
 
 #endif //NORB_DSA_DEPTHFIRSTSEARCHVISIT_HH

@@ -14,21 +14,24 @@
 #define LIBNORB_DSA_DEPTHFIRSTSEARCH_HH
 
 
+namespace norbdsa
+{
+    template <typename T> class Graph;
+    template <typename T> struct DepthFirstSearchStorage;
+    /**
+     * @tparam T
+     * @param G
+     */
+    template <typename T> void DepthFirstSearch(Graph<T> G);
+    /**
+     *
+     * @tparam T
+     * @param G
+     * @param storage
+     */
+    template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage);
 
-template <typename T> class Graph;
-template <typename T> struct DepthFirstSearchStorage;
-/**
- * @tparam T
- * @param G
- */
-template <typename T> void DepthFirstSearch(Graph<T> G);
-/**
- *
- * @tparam T
- * @param G
- * @param storage
- */
-template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage);
+}
 
 
 #include <memory>
@@ -36,26 +39,28 @@ template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T
 #include "DepthFirstSearchVisit.hh"
 #include "DepthFirstSearchStorage.hh"
 
-template <typename T> void DepthFirstSearch(Graph<T> G)
+namespace norbdsa
 {
-    DepthFirstSearchStorage<T> DFSS;
-    DepthFirstSearch(std::move(G),DFSS);
-};
+    template <typename T> void DepthFirstSearch(Graph<T> G)
+    {
+        DepthFirstSearchStorage<T> DFSS;
+        DepthFirstSearch(std::move(G),DFSS);
+    };
 
-template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage)
-{
-    for(auto &Node: G.getNodes())
+    template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage)
     {
-        storage.Colors[Node] = storage.white;
-    }
-    storage.time=0;
-    for(auto &Node: G.getNodes())
-    {
-        if(!storage.Colors.contains(Node) || storage.Colors[Node]==storage.white){
-            DepthFirstSearchVisit(storage,Node);
+        for(auto &Node: G.getNodes())
+        {
+            storage.Colors[Node] = storage.white;
         }
-    }
-};
-
+        storage.time=0;
+        for(auto &Node: G.getNodes())
+        {
+            if(!storage.Colors.contains(Node) || storage.Colors[Node]==storage.white){
+                DepthFirstSearchVisit(storage,Node);
+            }
+        }
+    };
+}
 
 #endif //NORB_DSA_DEPTHFIRSTSEARCH_HH

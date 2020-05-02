@@ -21,8 +21,11 @@
 
 int main(int argc, char** argv)
 {
+
     using std::cout;
     using std::endl;
+    using norbdsa::Graph;
+    using norbdsa::DepthFirstSearch;
     cout << "Generating Elements" << endl;
     char u,v,x,y,w,z;
     u='u';v='v';x='x';y='y';w='w';z='z';

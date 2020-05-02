@@ -22,6 +22,8 @@ int main(int argc, char** argv)
 {
     using std::cout;
     using std::endl;
+    using norbdsa::Graph;
+    using norbdsa::TopologicalSort;
     cout << "Generating Elements" << endl;
     std::string Schuhe="Schuhe",Socken="Socken",Mantel="Mantel",Hose="Hose",Unterhose="Unterhose",Pullover="Pullover",Unterhemd="Unterhemd",Brille="Brille";
 
