@@ -18,9 +18,9 @@
 
 namespace norbdsa
 {
-    template <typename T> class Graph;
-    template <typename T,typename ... U> class GraphNode;
-    template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
+    template <typename T, typename ... U> class Graph;
+    template <typename T, typename ... U> class GraphNode;
+    template <typename T, typename ... U> std::deque<std::shared_ptr<GraphNode<T,U...>>> TopologicalSort(Graph<T,U...> G);
 }
 
 #include "Graph.hh"
@@ -28,7 +28,7 @@ namespace norbdsa
 #include "DepthFirstSearch.hh"
 namespace norbdsa
 {
-    template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G)
+    template <typename T,typename ... U> std::deque<std::shared_ptr<GraphNode<T,U...>>> TopologicalSort(Graph<T,U...> G)
     {
         DepthFirstSearchStorage<T> DFSS;
         std::deque<std::shared_ptr<GraphNode<T>>> List;
@@ -41,4 +41,5 @@ namespace norbdsa
 
     }
 }
+
 #endif //NORB_DSA_TOPOLOGICALSORT_HH

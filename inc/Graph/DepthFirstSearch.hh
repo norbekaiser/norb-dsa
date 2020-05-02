@@ -13,26 +13,24 @@
 #ifndef LIBNORB_DSA_DEPTHFIRSTSEARCH_HH
 #define LIBNORB_DSA_DEPTHFIRSTSEARCH_HH
 
-
 namespace norbdsa
 {
-    template <typename T> class Graph;
-    template <typename T> struct DepthFirstSearchStorage;
+    template <typename T,typename ... U> class Graph;
+    template <typename T,typename ... U> struct DepthFirstSearchStorage;
     /**
      * @tparam T
      * @param G
      */
-    template <typename T> void DepthFirstSearch(Graph<T> G);
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G);
     /**
      *
      * @tparam T
      * @param G
      * @param storage
      */
-    template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage);
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage);
 
 }
-
 
 #include <memory>
 #include "Graph.hh"
@@ -41,13 +39,13 @@ namespace norbdsa
 
 namespace norbdsa
 {
-    template <typename T> void DepthFirstSearch(Graph<T> G)
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G)
     {
         DepthFirstSearchStorage<T> DFSS;
         DepthFirstSearch(std::move(G),DFSS);
     };
 
-    template <typename T> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage)
+    template <typename T,typename ... U> void DepthFirstSearch(Graph<T> G,DepthFirstSearchStorage<T> &storage)
     {
         for(auto &Node: G.getNodes())
         {
