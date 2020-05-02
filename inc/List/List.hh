@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef NORB_DSA_LIST_HH
-#define NORB_DSA_LIST_HH
+#ifndef LIBNORB_DSA_LIST_HH
+#define LIBNORB_DSA_LIST_HH
 
 #include <List/ListNodeElement.hh>
 #include <List/ListNodeEnd.hh>

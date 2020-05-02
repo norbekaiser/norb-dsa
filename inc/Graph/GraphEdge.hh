@@ -10,8 +10,8 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef NORB_DSA_GRAPHVEDGE_HH
-#define NORB_DSA_GRAPHVEDGE_HH
+#ifndef LIBNORB_DSA_GRAPHVEDGE_HH
+#define LIBNORB_DSA_GRAPHVEDGE_HH
 
 #include <memory>
 
