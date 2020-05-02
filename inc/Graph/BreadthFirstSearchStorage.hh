@@ -38,7 +38,6 @@ namespace norbdsa
         std::unordered_map<std::shared_ptr<GraphNode<T,U...>>,std::shared_ptr<GraphNode<T>>> pi;
         std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnBlack;
         std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnGray;
-        long time=0;
     };
 }
 

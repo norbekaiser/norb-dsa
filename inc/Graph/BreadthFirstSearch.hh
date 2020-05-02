@@ -66,7 +66,6 @@ namespace norbdsa
         {
             std::shared_ptr<GraphNode<T,U...>> node = Q.front();
             Q.pop();
-            //for all adjacent vertexes
             for(auto &Edge: S->getEdges())
             {
                 if(!storage.Colors.contains(Edge.getTarget()) || storage.Colors[Edge.getTarget()]==storage.white)
