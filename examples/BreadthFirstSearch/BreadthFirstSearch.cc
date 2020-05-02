@@ -11,8 +11,8 @@
 //     3. This notice may not be removed or altered from any source distribution.
 
 #include <iostream>
-#include "Graph/Graph.hh"
-#include "Graph/BreadthFirstSearch.hh"
+#include <Graph/Graph.hh>
+#include <Graph/BreadthFirstSearch.hh>
 
 /**
  * @example BreadthFirstSearch.cc "DepthFirstSearch"

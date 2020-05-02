@@ -11,8 +11,8 @@
 //     3. This notice may not be removed or altered from any source distribution.
 
 #include <iostream>
-#include "Graph/Graph.hh"
-#include "Graph/TopologicalSort.hh"
+#include <Graph/Graph.hh>
+#include <Graph/TopologicalSort.hh>
 
 enum class Cloth
 {
