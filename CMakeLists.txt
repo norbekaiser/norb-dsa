@@ -20,7 +20,7 @@ target_sources(libnorb-dsa INTERFACE
         inc/Graph/Dijkstra.hh
         inc/Graph/Graph.hh
         inc/Graph/GraphNode.hh
-        inc/Graph/GraphVedge.hh
+        inc/Graph/GraphEdge.hh
         inc/Graph/TopologicalSort.hh
         )
 
