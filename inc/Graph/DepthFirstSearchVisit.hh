@@ -16,7 +16,7 @@
 #include <memory>
 
 template <typename T> struct DepthFirstSearchStorage;
-template <typename T> struct GraphNode;
+template <typename T,typename ... U> struct GraphNode;
 template <typename T> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node);
 
 #include "GraphNode.hh"

@@ -15,6 +15,10 @@
 #include "Graph/Graph.hh"
 #include "Graph/DepthFirstSearch.hh"
 
+/**
+ * @example DepthFirstSearch.cc "DepthFirstSearch"
+ */
+
 int main(int argc, char** argv)
 {
     using std::cout;

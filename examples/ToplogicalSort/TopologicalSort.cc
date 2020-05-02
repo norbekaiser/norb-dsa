@@ -14,6 +14,10 @@
 
 #include "Graph/Graph.hh"
 #include "Graph/TopologicalSort.hh"
+
+/**
+ * @example TopologicalSort.cc "Topological Sort Example"
+ */
 int main(int argc, char** argv)
 {
     using std::cout;

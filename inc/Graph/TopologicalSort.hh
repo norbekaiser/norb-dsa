@@ -18,7 +18,7 @@
 
 
 template <typename T> class Graph;
-template <typename T> class GraphNode;
+template <typename T,typename ... U> class GraphNode;
 template <typename T> std::deque<std::shared_ptr<GraphNode<T>>> TopologicalSort(Graph<T> G);
 
 
