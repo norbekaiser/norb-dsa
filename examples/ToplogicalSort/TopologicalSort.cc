@@ -11,7 +11,6 @@
 //     3. This notice may not be removed or altered from any source distribution.
 
 #include <iostream>
-
 #include "Graph/Graph.hh"
 #include "Graph/TopologicalSort.hh"
 
@@ -81,7 +80,4 @@ int main(int argc, char** argv)
         cout << Node->getElem() << endl;
     }
     return 0;
-
-
-
 }

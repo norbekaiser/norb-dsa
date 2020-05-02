@@ -11,7 +11,6 @@
 //     3. This notice may not be removed or altered from any source distribution.
 
 #include <iostream>
-
 #include "Graph/Graph.hh"
 #include "Graph/DepthFirstSearch.hh"
 
@@ -21,7 +20,6 @@
 
 int main(int argc, char** argv)
 {
-
     using std::cout;
     using std::endl;
     using norbdsa::Graph;
@@ -57,7 +55,4 @@ int main(int argc, char** argv)
     cout << "Depth First Search" << endl;
     DepthFirstSearch<decltype(u)>(G);
     return 0;
-
-
-
 }
