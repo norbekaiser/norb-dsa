@@ -29,12 +29,12 @@ namespace norbdsa
      */
     template <typename T,typename ... U> void BreadthFirstSearch(Graph<T,U...> G,std::shared_ptr<GraphNode<T,U...>> S);
     /**
-     *
-     * @tparam T
-     * @tparam U
-     * @param G
-     * @param S
-     * @param storage
+     * Breadth First Search Traverses the Graph starting with a Node S in the breadth
+     * @tparam T VertexType
+     * @tparam U EdgeWeight
+     * @param G Graph<T,U...>
+     * @param S Starting Node
+     * @param storage storage class, to e.g. get adhoc notified e.g. on grey/visist etc
      */
     template <typename T,typename ... U> void BreadthFirstSearch(Graph<T,U...> G,std::shared_ptr<GraphNode<T,U...>> S,BreadthFirstSearchStorage<T,U...> &storage);
 };
@@ -56,27 +56,24 @@ namespace norbdsa
     {
         for(auto &Node: G.getNodes())
         {
-            storage.Colors[Node] = storage.white;
+            storage.mark(Node,TraversalColor::White);
         }
-        storage.Colors[S] = storage.gray;
-
-        std::queue<std::shared_ptr<GraphNode<T,U...>>> Q;
-        Q.push(S);
-        while(!Q.empty())
+        storage.mark(S,TraversalColor::Gray);
+        storage.push(S);
+        while(!storage.q_empty())
         {
-            std::shared_ptr<GraphNode<T,U...>> node = Q.front();
-            Q.pop();
+            std::shared_ptr<GraphNode<T,U...>> Node = storage.pop();
             for(auto &Edge: S->getEdges())
             {
-                if(!storage.Colors.contains(Edge.getTarget()) || storage.Colors[Edge.getTarget()]==storage.white)
+                auto V = Edge.getTarget();
+                if(storage.getMark(V) == TraversalColor::White)
                 {
-                    storage.Colors[Edge.getTarget()] = storage.gray;
-                    Q.push(Edge.getTarget());
+                    storage.mark(V,TraversalColor::Gray);
+                    storage.push(V);
                 }
             }
-            storage.Colors[node] = storage.black;
+            storage.mark(Node,TraversalColor::Black);
         }
-
     }
 }
 

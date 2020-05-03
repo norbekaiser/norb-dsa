@@ -21,12 +21,12 @@ namespace norbdsa
     template <typename T,typename ... U> class GraphNode;
     template <typename T,typename ... U> class Graph
     {
-    private:
-        std::vector<std::shared_ptr<GraphNode<T,U...>>> Nodes;
     public:
         std::shared_ptr<GraphNode<T,U...>> addToGraph(T Elem);
         std::shared_ptr<GraphNode<T,U...>> addNode(std::shared_ptr<GraphNode<T,U...>> Node);
         std::vector<std::shared_ptr<GraphNode<T,U...>>> getNodes();
+    private:
+        std::vector<std::shared_ptr<GraphNode<T,U...>>> Nodes;
     };
 }
 

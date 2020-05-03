@@ -54,7 +54,7 @@ namespace norbdsa
         {
             storage.Colors[Node] = storage.white;
         }
-        storage.time=0;
+//        storage.time=0;
         for(auto &Node: G.getNodes())
         {
             if(!storage.Colors.contains(Node) || storage.Colors[Node]==storage.white)

@@ -10,34 +10,37 @@
 //
 //     3. This notice may not be removed or altered from any source distribution.
 
-#ifndef LIBNORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
-#define LIBNORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
+#ifndef LIBNORB_DSA_TRAVERSALCOLORING_HH
+#define LIBNORB_DSA_TRAVERSALCOLORING_HH
 
-namespace norbdsa
-{
-    template <typename T,typename ... U> class GraphNode;
-    /**
-     *
-     * @tparam T
-     * @tparam U
-     */
-    template <typename T,typename ... U> struct DepthFirstSearchStorage;
-}
-
-#include <memory>
 #include <unordered_map>
-#include <functional>
-#include "GraphNode.hh"
+#include <memory>
 
 namespace norbdsa
 {
-    template <typename T,typename ... U> struct DepthFirstSearchStorage
-    {
-        enum color{white,gray,black};
-        std::unordered_map<std::shared_ptr<GraphNode<T,U...>>,color> Colors;
-        std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnBlack;
-        std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnGray;
+    enum class TraversalColor{
+        White,
+        Gray,
+        Black
+    };
+
+    template < template <typename ,typename...> typename C,typename T,typename ... U> class TraversalColoring {
+    private:
+        std::unordered_map<std::shared_ptr< C<T,U...> > ,TraversalColor> Colors;
+    public:
+        void setMark(std::shared_ptr<C<T,U...>> F,TraversalColor Color=TraversalColor::White){
+            Colors[F] = Color;
+        }
+        TraversalColor getMark(std::shared_ptr<C<T,U...>> F)
+        {
+            if(!Colors.contains(F))
+            {
+                return TraversalColor::White;
+            }
+            return Colors[F];
+        }
+
     };
 }
 
-#endif //NORB_DSA_DEPTHFIRSTSEARCHSTORAGE_HH
+#endif //LIBNORB_DSA_TRAVERSALCOLORING_HH

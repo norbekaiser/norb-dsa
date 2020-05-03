@@ -13,32 +13,59 @@
 #ifndef LIBNORB_DSA_BREADTHFIRSTSEARCHSTORAGE_HH
 #define LIBNORB_DSA_BREADTHFIRSTSEARCHSTORAGE_HH
 
+#include <queue>
+
 namespace norbdsa
 {
+    enum class TraversalColor;
+    template < template <typename ,typename...> typename C,typename T,typename ... U> class TraversalColoring;
     template <typename T,typename ... U> class GraphNode;
-    /**
-     *
-     * @tparam T
-     * @tparam U
-     */
-    template <typename T,typename ... U> struct BreadthFirstSearchStorage;
+    template <typename T,typename ... U> class BreadthFirstSearchStorage
+    {
+    public:
+//        struct White,Gray,Black;//dismissed tag dispatch, as unclear for return type and minimizing readability
+        TraversalColor getMark(std::shared_ptr<GraphNode<T,U...>> N);
+        void mark(std::shared_ptr<GraphNode<T,U...>> N,TraversalColor color);
+        void push(std::shared_ptr<GraphNode<T,U...>> N);
+        bool q_empty();
+        std::shared_ptr<GraphNode<T,U...>> pop();
+    private:
+        std::queue<std::shared_ptr<GraphNode<T,U...>>> Q;
+        TraversalColoring<GraphNode,T,U...> coloring;
+
+    };
 }
 
 #include <memory>
-#include <unordered_map>
 #include <functional>
 #include "GraphNode.hh"
+#include "TraversalColoring.hh"
+
 
 namespace norbdsa
 {
-    template <typename T,typename ... U> struct BreadthFirstSearchStorage
+    template<typename T, typename... U> TraversalColor BreadthFirstSearchStorage<T, U...>::getMark(std::shared_ptr<GraphNode<T, U...>> N)
     {
-        enum color{white,gray,black};
-        std::unordered_map<std::shared_ptr<GraphNode<T,U...>>,color> Colors;
-        std::unordered_map<std::shared_ptr<GraphNode<T,U...>>,std::shared_ptr<GraphNode<T>>> pi;
-        std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnBlack;
-        std::vector<std::function<void(std::shared_ptr<GraphNode<T,U...>>)>> OnGray;
-    };
+        return coloring.getMark(std::move(N));
+    }
+    template<typename T, typename... U>  std::shared_ptr<GraphNode<T,U...>> BreadthFirstSearchStorage<T, U...>::pop()
+    {
+        auto temp = Q.front();
+        Q.pop();
+        return std::move(temp);
+    }
+
+    template<typename T, typename... U> void BreadthFirstSearchStorage<T, U...>::mark(std::shared_ptr<GraphNode<T, U...>> N, TraversalColor color) {
+        coloring.setMark(std::move(N),color);
+    }
+
+    template<typename T, typename... U> void BreadthFirstSearchStorage<T, U...>::push(std::shared_ptr<GraphNode<T, U...>> N) {
+        Q.push(std::move(N));
+    }
+    template<typename T, typename... U> bool BreadthFirstSearchStorage<T, U...>::q_empty()   {
+        return Q.empty();
+    }
+
 }
 
 #endif //LIBNORB_DSA_BREADTHFIRSTSEARCHSTORAGE_HH
