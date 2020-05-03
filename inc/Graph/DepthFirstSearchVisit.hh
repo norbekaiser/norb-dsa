@@ -37,18 +37,18 @@ namespace norbdsa
 {
     template <typename T,typename ... U> void DepthFirstSearchVisit(DepthFirstSearchStorage<T> &storage,std::shared_ptr<GraphNode<T>> Node)
     {
-        storage.time = storage.time + 1;
         storage.Colors[Node] = storage.gray;
+        //        storage.time = storage.time + 1;
         std::for_each(storage.OnGray.begin(),storage.OnGray.end(),[&Node](auto f){f(Node);});
         for(auto &V: Node->getEdges())
         {
             if(!storage.Colors.contains(V.getTarget()) || storage.Colors[V.getTarget()] ==storage.white)
             {
-                storage.pi[V.getTarget()] = Node;
+//                storage.pi[V.getTarget()] = Node;
                 DepthFirstSearchVisit(storage,V.getTarget());
             }
         }
-        storage.time = storage.time + 1;
+//        storage.time = storage.time + 1;
         storage.Colors[Node] = storage.black;
         std::for_each(storage.OnBlack.begin(),storage.OnBlack.end(),[&Node](auto f){f(Node);});
     };

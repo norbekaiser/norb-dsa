@@ -20,8 +20,9 @@ target_sources(libnorb-dsa INTERFACE
         inc/Graph/DepthFirstSearchStorage.hh
         inc/Graph/DepthFirstSearchVisit.hh
         inc/Graph/Graph.hh
-        inc/Graph/GraphNode.hh
         inc/Graph/GraphEdge.hh
+        inc/Graph/GraphNode.hh
+        inc/Graph/TraversalColoring.hh
         inc/Graph/TopologicalSort.hh
         )
 
