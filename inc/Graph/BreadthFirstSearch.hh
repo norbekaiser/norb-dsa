@@ -62,7 +62,7 @@ namespace norbdsa
         storage.push(S);
         while(!storage.q_empty())
         {
-            std::shared_ptr<GraphNode<T,U...>> Node = storage.pop();
+            auto Node = storage.pop();
             for(auto &Edge: S->getEdges())
             {
                 auto V = Edge.getTarget();
